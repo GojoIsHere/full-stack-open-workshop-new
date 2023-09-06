@@ -155,6 +155,7 @@ const App = () => {
       payload: {
         content: newNote,
         id: notes.getState().length + 1,
+        importance: true,
       },
     });
     // console.log(notes.getState()[0]);
@@ -174,7 +175,7 @@ const App = () => {
         <ul>
           {notes.getState().map((val) => (
             <li key={val.id}>
-              {val.content} , id : {val.id}
+              {val.content} , <b>{val.importance ? "important" : ""}</b>
             </li>
           ))}
         </ul>
