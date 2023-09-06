@@ -20,7 +20,8 @@ const Notes = () => {
             toggleImportant(note.id);
           }}
         >
-          {note.content} <strong>{note.important ? "important" : ""}</strong>
+          {note.content}{" "}
+          <strong>{note.important ? "Important" : "NOT Important"}</strong>
         </li>
       ))}
     </ul>
