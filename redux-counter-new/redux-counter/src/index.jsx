@@ -5,11 +5,22 @@ import { createStore } from "redux";
 const counterReducer = (state = 100, action) => {
   console.log("action is", action);
   console.log("state is", state);
-  if (action.type === "ADD") {
-    const newState = state + 1;
-    return newState;
+  switch (action.type) {
+    case "ADD": {
+      const newState = state + 1;
+      return newState;
+    }
+    case "SUB": {
+      const newState = state - 1;
+      return newState;
+    }
+    case "ZERO": {
+      const newState = 0;
+      return newState;
+    }
+    default:
+      return state;
   }
-  return state;
 };
 
 const store = createStore(counterReducer);
@@ -24,10 +35,11 @@ const App = () => {
 
   const subtractCounter = () => {
     // setCounter(counter - 1);
+    store.dispatch({ type: "SUB" });
   };
 
   const makeZero = () => {
-    // setCounter(0);
+    store.dispatch({ type: "ZERO" });
   };
 
   return (
