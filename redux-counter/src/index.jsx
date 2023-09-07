@@ -187,3 +187,38 @@ root.render(<App />);
 notes.subscribe(() => {
   root.render(<App />);
 });
+
+//
+
+// import { useState } from "react";
+// import { createRoot } from "react-dom/client";
+// import { createStore } from "redux";
+
+// const container = document.getElementById("root");
+// const root = createRoot(container);
+
+// const noteReducer = (state, action) => {
+//   console.log(action);
+//   console.log("this is test for action type:", action.type);
+// };
+
+// const note = createStore(noteReducer);
+
+// note.dispatch({
+//   type: "NEW_NOTE",
+//   payload: {
+//     content: "state changes are made with actions",
+//     important: false,
+//     id: 2,
+//   },
+// });
+
+// const App = () => {
+//   // [notes, setNotes]= useState([]);
+//   // setNote(1);
+// };
+
+// root.render("hello ");
+// // notes.subscribe(() => {
+// //   root.render(<App />);
+// // });
