@@ -52,8 +52,7 @@
 
 // root.render(<App />);
 
-// try again -- >
-
+//  try again  -------------------------------------------------------------------------------------------- >
 // import { createRoot } from "react-dom/client";
 // import { createStore } from "redux";
 
@@ -94,8 +93,7 @@
 // };
 // root.render(<App />);
 
-//----> try again
-
+//  try again  -------------------------------------------------------------------------------------------- >
 // import { createRoot } from "react-dom/client";
 // import { createStore } from "redux";
 
@@ -130,23 +128,65 @@
 // };
 // root.render(<App />);
 
-// ---- > try again
+//  try again  -------------------------------------------------------------------------------------------- >
+
 import { createRoot } from "react-dom/client";
 import { createStore } from "redux";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const noteStore = (state = [], action) => {
+// code for notes (store) -- >
+
+const noteStore = (
+  state = [
+    {
+      content: "This is noteStore test",
+      id: 1,
+      importance: true,
+    },
+  ],
+  action
+) => {
   if (action.type === "NEW_NOTE") {
     return state.concat(action.payload);
   }
   return state;
 };
+// creating note store
+
 const notes = createStore(noteStore);
+
+// code for list (store) -- >
+const listStore = (
+  state = [
+    {
+      content: "This is listStore test ",
+      id: 1,
+      importance: true,
+    },
+  ],
+  action
+) => {
+  if (action.type === "NEW_LIST") {
+    return state.concat(action.payload);
+  }
+  return state;
+};
+
+// creating list store
+
+const lists = createStore(listStore);
+
+// App starts from here -- ->
 
 const App = () => {
   let newNote;
+  const handleNote = (e) => {
+    newNote = e.target.value;
+    console.log(e.target.value);
+  };
+
   const addNote = (e) => {
     e.preventDefault();
 
@@ -160,22 +200,57 @@ const App = () => {
     });
     // console.log(notes.getState()[0]);
   };
-  const handleChange = (e) => {
-    newNote = e.target.value;
+
+  // code for lists (store)----->
+  let newList;
+  const handleList = (e) => {
+    newList = e.target.value;
     console.log(e.target.value);
+  };
+
+  const addList = (e) => {
+    e.preventDefault();
+
+    lists.dispatch({
+      type: "NEW_LIST",
+      payload: {
+        content: newList,
+        id: lists.getState().length + 1,
+        importance: true,
+      },
+    });
+    // console.log("this is test 22: ", lists.getState()[1]);
   };
   return (
     <div>
-      <form>
-        <input type="text" name="noteText" onChange={handleChange} />
+      {/* note ---> */}
+      <form name="notes">
+        <input type="text" name="noteText" onChange={handleNote} />
         <button onClick={addNote}>Add Note</button>
       </form>
+
       <div>
         Notes will be here :
         <ul>
-          {notes.getState().map((val) => (
-            <li key={val.id}>
-              {val.content} , <b>{val.importance ? "important" : ""}</b>
+          {notes.getState().map((note) => (
+            <li key={note.id}>
+              {note.content} , <b>{note.importance ? "important" : ""}</b>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* list ---> */}
+      <form name="lists">
+        <input type="text" name="listText" onChange={handleList} />
+        <button onClick={addList}>Add Note</button>
+      </form>
+      <div>
+        New lists wil be here :
+        <ul>
+          {lists.getState().map((list) => (
+            <li key={list.id}>
+              {list.content} ,<b>{list.importance ? "important" : ""}</b>
             </li>
           ))}
         </ul>
@@ -187,8 +262,11 @@ root.render(<App />);
 notes.subscribe(() => {
   root.render(<App />);
 });
+lists.subscribe(() => {
+  root.render(<App />);
+});
 
-//
+//  try again  -------------------------------------------------------------------------------------------- >
 
 // import { useState } from "react";
 // import { createRoot } from "react-dom/client";
