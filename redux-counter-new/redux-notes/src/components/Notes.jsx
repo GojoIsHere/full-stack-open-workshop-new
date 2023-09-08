@@ -6,9 +6,10 @@ const Notes = () => {
   const filter = useSelector((state) => {
     return state.filter;
   });
+
   const notes = useSelector((state) => {
-    console.log(" this is the debugger : ", state);
-    if (filter === "AlL") {
+    // console.log(" this is the debugger : ", state.filter);
+    if (filter === "ALL") {
       return state.notes;
     }
 
