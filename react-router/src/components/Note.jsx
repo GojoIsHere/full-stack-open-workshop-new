@@ -4,9 +4,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-const Note = ({ notes }) => {
-  const id = useParams().id;
-  const note = notes.find((val) => val.id === Number(id));
+const Note = ({ note }) => {
   return (
     <div>
       <h2>{note.content}</h2>

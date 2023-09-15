@@ -6,7 +6,6 @@ const Login = ({ setUser }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     const username = event.target.uName.value;
-    SpeechSynthesisUtterance();
     setUser(username);
     navigate("/");
   };
