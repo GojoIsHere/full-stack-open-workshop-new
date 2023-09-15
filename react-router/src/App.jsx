@@ -1,18 +1,31 @@
 import { useState } from "react";
 
-const Home = () => (
-  <div>
-    {" "}
-    <h2>TKTL notes app</h2>{" "}
-  </div>
-);
-
-const Notes = () => (
-  <div>
-    {" "}
-    <h2>Notes</h2>{" "}
-  </div>
-);
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home.jsx";
+import Notes from "./components/Notes.jsx";
+import Note from "./components/Note.jsx";
+const notes = [
+  {
+    id: 1,
+    content: "HTML is easy",
+    important: true,
+  },
+  {
+    id: 2,
+    content: "Browser can execute only JavaScript",
+    important: true,
+  },
+  {
+    id: 3,
+    content: "GET and POST are the most important methods of HTTP protocol",
+    important: true,
+  },
+  {
+    content: "hello ",
+    important: false,
+    id: 4,
+  },
+];
 
 const Users = () => (
   <div>
@@ -22,43 +35,68 @@ const Users = () => (
 );
 
 const App = () => {
-  const [page, setPage] = useState("home");
+  // const [page, setPage] = useState("home");
 
-  const toPage = (page) => (event) => {
-    event.preventDefault();
-    setPage(page);
-  };
+  // const toPage = (page) => (event) => {
+  //   event.preventDefault();
+  //   setPage(page);
+  // };
 
-  const content = () => {
-    if (page === "home") {
-      return <Home />;
-    } else if (page === "notes") {
-      return <Notes />;
-    } else if (page === "users") {
-      return <Users />;
-    }
-  };
+  // const content = () => {
+  //   if (page === "home") {
+  //     return <Home />;
+  //   } else if (page === "notes") {
+  //     return <Notes />;
+  //   } else if (page === "users") {
+  //     return <Users />;
+  //   }
+  // };
 
   const padding = {
     padding: 5,
   };
 
   return (
-    <div>
+    // <div>
+    //   <div>
+    //     <a href="" onClick={toPage("home")} style={padding}>
+    //       home
+    //     </a>
+    //     <a href="" onClick={toPage("notes")} style={padding}>
+    //       notes
+    //     </a>
+    //     <a href="" onClick={toPage("users")} style={padding}>
+    //       users
+    //     </a>
+    //   </div>
+
+    //   {content()}
+    // </div>
+
+    <Router>
       <div>
-        <a href="" onClick={toPage("home")} style={padding}>
+        <Link style={padding} to="/">
           home
-        </a>
-        <a href="" onClick={toPage("notes")} style={padding}>
+        </Link>
+        <Link style={padding} to="/notes">
           notes
-        </a>
-        <a href="" onClick={toPage("users")} style={padding}>
+        </Link>
+        <Link style={padding} to="/users">
           users
-        </a>
+        </Link>
       </div>
 
-      {content()}
-    </div>
+      <Routes>
+        <Route path="/notes/:id" element={<Note notes={notes} />} />
+        <Route path="/notes" element={<Notes notes={notes} />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+
+      <div>
+        <i>Note app, Department of Computer Science 2023</i>
+      </div>
+    </Router>
   );
 };
 
