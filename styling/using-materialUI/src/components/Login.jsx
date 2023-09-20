@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import { TextField, Button } from "@mui/material";
 const Login = ({ setUser }) => {
   const navigate = useNavigate();
 
@@ -15,10 +15,16 @@ const Login = ({ setUser }) => {
       <h2>login</h2>
       <form onSubmit={onSubmit}>
         <div>
-          username: <input name="uName" />
+          <TextField label="username" name="uName" />
         </div>
-
-        <button type="submit">login</button>
+        <div>
+          <TextField label="password" type="password" />
+        </div>
+        <div>
+          <Button variant="contained" color="primary" type="submit">
+            login
+          </Button>
+        </div>
       </form>
     </div>
   );

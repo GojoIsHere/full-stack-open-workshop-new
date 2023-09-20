@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container, AppBar, Button, Toolbar, IconButton } from "@mui/material";
 
 import { Routes, Route, Link, Navigate, useMatch } from "react-router-dom";
 import Home from "./components/Home.jsx";
@@ -30,23 +31,6 @@ const notes = [
 ];
 
 const App = () => {
-  // const [page, setPage] = useState("home");
-
-  // const toPage = (page) => (event) => {
-  //   event.preventDefault();
-  //   setPage(page);
-  // };
-
-  // const content = () => {
-  //   if (page === "home") {
-  //     return <Home />;
-  //   } else if (page === "notes") {
-  //     return <Notes />;
-  //   } else if (page === "users") {
-  //     return <Users />;
-  //   }
-  // };
-
   const [user, setUser] = useState(null);
 
   const padding = {
@@ -59,41 +43,48 @@ const App = () => {
     : null;
 
   return (
-    // <div>
-    //   <div>
-    //     <a href="" onClick={toPage("home")} style={padding}>
-    //       home
-    //     </a>
-    //     <a href="" onClick={toPage("notes")} style={padding}>
-    //       notes
-    //     </a>
-    //     <a href="" onClick={toPage("users")} style={padding}>
-    //       users
-    //     </a>
-    //   </div>
-
-    //   {content()}
-    // </div>
-
-    <>
-      <div>
-        <Link style={padding} to="/">
-          home
-        </Link>
-        <Link style={padding} to="/notes">
-          notes
-        </Link>
-        <Link style={padding} to="/users">
-          users
-        </Link>
-        {user ? (
-          <em>{user} logged in</em>
-        ) : (
-          <Link style={padding} to="/login">
-            login
-          </Link>
-        )}
-      </div>
+    <Container>
+      {/* <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+          ></IconButton>
+          <Button color="inherit">
+            <Link to="/">home</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/notes">notes</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/users">users</Link>
+          </Button>
+          <Button color="inherit">
+            {user ? <em>{user} logged in</em> : <Link to="/login">login</Link>}
+          </Button>
+        </Toolbar>
+      </AppBar> */}
+      <AppBar position="static">
+        <Toolbar>
+          <Button color="inherit" component={Link} to="/">
+            home
+          </Button>
+          <Button color="inherit" component={Link} to="/notes">
+            notes
+          </Button>
+          <Button color="inherit" component={Link} to="/users">
+            users
+          </Button>
+          {user ? (
+            <em>{user} logged in</em>
+          ) : (
+            <Button color="inherit" component={Link} to="/login">
+              login
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
 
       <Routes>
         <Route path="/notes/:id" element={<Note note={note} />} />
@@ -109,7 +100,7 @@ const App = () => {
       <div>
         <i>Note app, Department of Computer Science 2023</i>
       </div>
-    </>
+    </Container>
   );
 };
 
