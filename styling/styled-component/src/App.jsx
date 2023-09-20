@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import styled from "styled-components";
 import { Routes, Route, Link, Navigate, useMatch } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import Notes from "./components/Notes.jsx";
@@ -29,24 +29,23 @@ const notes = [
   },
 ];
 
+const Page = styled.div`
+  padding: 1em;
+  background: papayawhip;
+`;
+
+const Navigation = styled.div`
+  background: BurlyWood;
+  padding: 1em;
+`;
+
+const Footer = styled.div`
+  background: Chocolate;
+  padding: 1em;
+  margin-top: 1em;
+`;
+
 const App = () => {
-  // const [page, setPage] = useState("home");
-
-  // const toPage = (page) => (event) => {
-  //   event.preventDefault();
-  //   setPage(page);
-  // };
-
-  // const content = () => {
-  //   if (page === "home") {
-  //     return <Home />;
-  //   } else if (page === "notes") {
-  //     return <Notes />;
-  //   } else if (page === "users") {
-  //     return <Users />;
-  //   }
-  // };
-
   const [user, setUser] = useState(null);
 
   const padding = {
@@ -59,24 +58,8 @@ const App = () => {
     : null;
 
   return (
-    // <div>
-    //   <div>
-    //     <a href="" onClick={toPage("home")} style={padding}>
-    //       home
-    //     </a>
-    //     <a href="" onClick={toPage("notes")} style={padding}>
-    //       notes
-    //     </a>
-    //     <a href="" onClick={toPage("users")} style={padding}>
-    //       users
-    //     </a>
-    //   </div>
-
-    //   {content()}
-    // </div>
-
-    <>
-      <div>
+    <Page>
+      <Navigation>
         <Link style={padding} to="/">
           home
         </Link>
@@ -93,7 +76,7 @@ const App = () => {
             login
           </Link>
         )}
-      </div>
+      </Navigation>
 
       <Routes>
         <Route path="/notes/:id" element={<Note note={note} />} />
@@ -106,10 +89,10 @@ const App = () => {
         <Route path="/login" element={<Login setUser={setUser} />} />
       </Routes>
 
-      <div>
+      <Footer>
         <i>Note app, Department of Computer Science 2023</i>
-      </div>
-    </>
+      </Footer>
+    </Page>
   );
 };
 
