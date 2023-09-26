@@ -17,7 +17,8 @@ const noteReducer = (state = initialState, action) => {
   // console.log("state is", state);
   switch (action.type) {
     case "NEW_NOTE": {
-      const newState = state.concat(action.payload);
+      // const newState = state.concat(action.payload);
+      const newState = [...state, action.payload];
       return newState;
     }
     case "TOGGLE_IMPORTANCE": {
