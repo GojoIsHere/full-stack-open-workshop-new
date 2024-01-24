@@ -1,0 +1,184 @@
+/* Start: VARIABLES */
+:root {
+  --primary: #e4232a;
+  --secondary: #5271ff;
+  --lightest-grey: #f0f0f0;
+  --lighter-grey: #dbdbdb;
+  --h4-grey: #717171;
+  --site-grey: #383838;
+  --footer-grey: #222222;
+
+  /* Fonts */
+  --Primary-font: Decalo-bold;
+  --Secondary-font: Roboto;
+
+  /* Spacings */
+  --wc-box-h-spacing-unit: 1rem;
+  --wc-box-v-spacing-unit: 1rem;
+  --wrapper-max-width: 1280px;
+}
+/* End: VARIABLES */
+
+/* Start: RESETS */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Remove spacing */
+ul > li {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 0.5rem !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999999;
+  border-radius: 0.5rem;
+  border: 0.25rem solid #999999;
+}
+
+* {
+  scrollbar-color: #999999 transparent;
+}
+
+a {
+  color: var(--site-grey);
+}
+
+input,
+label {
+  display: block;
+}
+/* End: RESETS */
+
+/* Start: GLOBALS */
+body {
+  color: var(--site-grey);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  position: relative;
+  font-family: var(--Secondary-font);
+  font-size: 1rem;
+  letter-spacing: 0.45px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.5;
+  max-width: 30ch;
+}
+
+h1,
+h2 {
+  font-family: var(--Primary-font);
+}
+
+p,
+blockquote,
+li {
+  max-width: 200ch;
+  line-height: 1.5;
+}
+/* End: GLOBALS */
+
+/* BEGIN: TEMPLATE */
+/* small */
+
+/* medium */
+@media only screen and (min-width: 480px) {
+}
+/* large */
+@media only screen and (min-width: 768px) {
+}
+/* hd */
+@media only screen and (min-width: 1024px) {
+}
+/* menu full screen height */
+@media only screen and (min-width: 1162px) {
+}
+/* uhd */
+@media only screen and (min-width: 1536px) {
+}
+/* END: TEMPLATE */

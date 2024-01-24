@@ -1,0 +1,42 @@
+
+
+###
+POST http://localhost:3001/api/user/signup
+Content-Type: application/json
+
+{
+    "email":"abc@gmail.com",
+    "password":"abc"
+}
+
+###
+POST http://localhost:3001/api/user/login
+Content-Type: application/json
+
+{
+    "email":"abc@gmail.com",
+    "password":"abc"
+}
+
+###
+POST http://localhost:3001/api/patient
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpZCI6IjY1OTI4MTk4NjNmMTZhZDA2NDEzYjllMiIsImlhdCI6MTcwNDEyNTgyMH0.HJPK8VBBOSEv4J29wwB0q07qJYSy7oZJp3SrOUiQ_UQ
+
+{
+    "full_name":"robot ",
+    "email":"hem@gmail.com",
+    "contact":983333,
+    "DOB":"1999-07-07",
+    "Address":"lalitpur",
+    "image":"./images/icons8-user-50.png",
+    "gender":"M"
+}
+
+###
+GET http://localhost:3001/api/patient
+
+
+###
+DELETE http://localhost:3001/api/patient/6596df4b965bf8a23cf4db15
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJpZCI6IjY1OTI4MTk4NjNmMTZhZDA2NDEzYjllMiIsImlhdCI6MTcwNDEyNTgyMH0.HJPK8VBBOSEv4J29wwB0q07qJYSy7oZJp3SrOUiQ_UQ

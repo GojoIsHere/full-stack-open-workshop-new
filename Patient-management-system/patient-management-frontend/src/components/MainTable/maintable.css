@@ -1,0 +1,54 @@
+.table-content {
+  display: flex;
+  width: 95%;
+  justify-content: center;
+  margin: auto;
+  border-radius: 0.5rem;
+  padding: 10px;
+  /* grid-row: 3/4; */
+  /* grid-column: 2/3; */
+  /* border: 1px solid black; */
+}
+.info-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Lucida Sans Regular";
+}
+
+.table-content th {
+  font-family: "Lucida Sans Regular";
+}
+.td-wrapper {
+  background-color: rgb(208, 205, 205);
+}
+.table-content table {
+  width: 100%;
+  text-align: center;
+}
+
+.delete-modal {
+  border: 1px solid black;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  width: 10%;
+  text-align: center;
+}
+
+.delete-row {
+  cursor: pointer;
+}
+.edit-icon {
+  cursor: pointer;
+}

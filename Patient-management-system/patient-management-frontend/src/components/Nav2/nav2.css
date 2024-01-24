@@ -1,0 +1,54 @@
+.nav2-container {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  padding: 10px;
+  /* max-width: 1000px; */
+  margin: auto;
+  /* grid-row: 2/3; */
+}
+.left-content {
+  display: flex;
+  gap: 2rem;
+}
+.number-patients {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.number span {
+  font-size: 2rem;
+  font-family: "Gill Sans MT";
+  color: blue;
+}
+.sortby{
+    display: flex;
+    gap:0.5rem;
+    /* padding: 1rem; */
+}
+.sortby select{
+    height: 1.3rem;
+    border-radius: 3px;
+}
+
+.filter-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 3px;
+  align-items: center;
+  border: 1px solid black;
+  width: 50%;
+  font-size: 0.9rem;
+  padding: 0.2rem;
+}
+.edit-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 3px;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+}

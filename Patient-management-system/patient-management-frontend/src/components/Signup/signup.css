@@ -1,0 +1,65 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 100vh;
+  background-color:lightblue;
+}
+
+
+.container-right {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #8d61ff;
+  padding: 1rem;
+  align-items: center;
+  border-radius: 5px;
+}
+
+
+.container-right form {
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+  width: 80%;
+}
+.form-title {
+  padding: 1rem;
+  color: #8d61ff;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.username-input input{
+  height: 2rem;
+  color: black;
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  outline: none;
+}
+
+
+
+
+.login-btn button {
+  border: none;
+  padding: 0.75rem;
+  background-color: #8d61ff;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+.create-account a {
+  padding: 1rem;
+  text-decoration: none;
+}
+
+
